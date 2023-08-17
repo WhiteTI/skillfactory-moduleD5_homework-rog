@@ -1,0 +1,15 @@
+
+{% extends 'layout/base.html' %}
+{% load custom_filters %}
+
+{% block title %}
+    Post
+{% endblock title %}
+<!-- В контенте на странице мы выводим сам продукт, первичный ключ которого был передан в адрес -->
+{% block content %}
+    <h1>{{ post.title|censor_text }}</h1>
+    <h4>{{ post.dateCreation|date:'d M Y' }}</h4>
+    <hr>
+    <p>{{ post.text|censor_text }}</p>
+    <p>{{ post.author.authorUser }}</p>
+{% endblock content %}
